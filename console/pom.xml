@@ -39,7 +39,7 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>device-detection-java-examples.shared</artifactId>
-            <version>${device-detection.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.51degrees</groupId>
