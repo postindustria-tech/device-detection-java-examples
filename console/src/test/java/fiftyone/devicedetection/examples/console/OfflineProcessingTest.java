@@ -31,7 +31,9 @@ import java.util.Objects;
 public class OfflineProcessingTest {
     @Test
     public void offlineProcessingTest() throws Exception {
-        OfflineProcessing.run(FileUtils.LITE_HASH_DATA_FILE_NAME,
+        OfflineProcessing.run(FileUtils.getHashFileName() == null
+                        ? FileUtils.LITE_HASH_DATA_FILE_NAME
+                        : FileUtils.getHashFileName(),
                 new FileInputStream(Objects.requireNonNull(FileUtils.getEvidenceFile())),
                 System.out);
     }

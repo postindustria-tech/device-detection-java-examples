@@ -30,7 +30,9 @@ public class GettingStartedOnPremTest {
 
     @Test
     public void gettingStartedOnPremTest() throws Exception {
-        GettingStartedOnPrem.run(FileUtils.LITE_HASH_DATA_FILE_NAME,
+        GettingStartedOnPrem.run(FileUtils.getHashFileName() == null
+                        ? FileUtils.LITE_HASH_DATA_FILE_NAME
+                        : FileUtils.getHashFileName(),
                 EvidenceHelper.setUpEvidence(), System.out);
     }
 }

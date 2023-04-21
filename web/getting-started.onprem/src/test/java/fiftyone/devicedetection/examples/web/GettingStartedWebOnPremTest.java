@@ -22,6 +22,7 @@
 
 package fiftyone.devicedetection.examples.web;
 
+import fiftyone.devicedetection.shared.testhelpers.FileUtils;
 import org.eclipse.jetty.server.Server;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -41,8 +42,9 @@ public class GettingStartedWebOnPremTest {
 
     @BeforeClass
     public static void startJetty() throws Exception {
-        System.setProperty("TestDataFile", getFilePath("device-detection-data/51Degrees-LiteV4.1" +
-                ".hash").getAbsolutePath());
+        System.setProperty("TestDataFile", FileUtils.getHashFile() == null
+                ? FileUtils.LITE_HASH_DATA_FILE_NAME
+                : FileUtils.getHashFile().getAbsolutePath());
         SERVER = EmbedJetty.startWebApp(getFilePath(resourceBase).getAbsolutePath(), 8081);
     }
 

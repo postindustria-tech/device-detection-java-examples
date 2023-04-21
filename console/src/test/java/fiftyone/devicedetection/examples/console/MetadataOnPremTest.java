@@ -28,6 +28,8 @@ import org.junit.Test;
 public class MetadataOnPremTest {
     @Test
     public void gettingMetaDataOnPremTest() throws Exception {
-        MetadataOnPrem.run(FileUtils.LITE_HASH_DATA_FILE_NAME, System.out);
+        MetadataOnPrem.run(FileUtils.getHashFileName() == null
+                ? FileUtils.LITE_HASH_DATA_FILE_NAME
+                : FileUtils.getHashFileName(), System.out);
     }
 }
