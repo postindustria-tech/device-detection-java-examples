@@ -6,7 +6,9 @@
 
 ## Introduction
 
-This module contains sub-modules - **console**, giving examples that are intended 
+These examples are not distributed as maven jars and need to be built by you.
+
+This project contains sub-modules - **console**, giving examples that are intended 
 to be run from the command line/console and **web**, illustrating use
 of 51Degrees Web/Servlet integration. There is also a **shared** sub-module
 containing various helpers for the examples.
@@ -34,3 +36,29 @@ property called "TestResourceKey".
 Some cloud examples require an enhanced resource key containing a license key. And some
 on-premise examples require you to provide a license key. You can find out about 
 resource keys and license keys at our [pricing page](https://51degrees.com/pricing). 
+
+## Examples
+
+The tables below describe the examples available in this repository.
+
+### Cloud
+
+| Example                                | Description                                                                                                                                        |
+|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| GettingStarted (Console)               | How to use the 51Degrees Cloud service to determine details about a device based on its User-Agent and User-Agent Client Hints HTTP header values. |
+| GettingStarted (Web)                   | How to use the 51Degrees Cloud service to determine details about a device as part of a simple Java servlet website.                               |
+| Metadata                               | How to access the meta-data that relates to things like the properties populated device detection                                                  |
+| TacLookup                              | How to get device details from a TAC (Type Allocation Code) using the 51Degrees cloud service.                                                     |
+| NativeModelLookup                      | How to get device details from a native model name using the 51Degrees cloud service.                                                              |
+
+### On-Premise
+
+| Example                  | Description                                                                                                                                                                                                                    |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| GettingStarted (Console) | How to use the 51Degrees on-premise device detection API to determine details about a device based on its User-Agent and User-Agent Client Hints HTTP header values.                                                           |
+| GettingStarted (Web)     | How to use the 51Degrees Cloud service to determine details about a device as part of a simple Java servlet website.                                                                                                           |
+| Metadata                 | How to access the meta-data that relates to things like the properties populated device detection.                                                                                                                             |
+| MatchMetrics             | How to view metrics associated with the properties of processing with a Device Detection engine.                                                                                                                               |
+| OfflineProcessing        | Example showing how to ingest a file containing data from web requests and perform detection against the entries.                                                                                                              |
+| PerformanceBenchmark     | How to configure the various performance options and run some simple performance tests.                                                                                                                                        |
+| UpdateOnStartup          | How to configure the Pipeline to automatically update the device detection data file on startup. Also illustrates 'file watcher'. This will refresh the device detection engine if the specified data file is updated on disk. |
