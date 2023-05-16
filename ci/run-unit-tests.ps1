@@ -7,6 +7,17 @@ param(
     [string]$RepoName
 )
 
-./java/run-unit-tests.ps1 -RepoName $RepoName -ProjectDir $ProjectDir -Name $Name -ExtraArgs "-DSuperResourceKey=$($Keys.TestResourceKey) -DTestResourceKey=$($Keys.TestResourceKey) -DLicenseKey=$($Keys.DeviceDetection)"
 
+Write-Output "Entering '$RepoPath'"
+
+Push-Location $RepoPath
+try {
+     Write-Output "$($Keys.TestResourceKey)"
+     mvn clean test "-DTestResourceKey=$($Keys.TestResourceKey)" "-DSuperResourceKey=$($Keys.TestResourceKey)" "-DLicenseKey=$($Keys.DeviceDetection)"
+
+}
+finally{
+   Write-Output "Leaving '$RepoPath'"
+   Pop-Location
+}
 exit $LASTEXITCODE
