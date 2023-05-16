@@ -12,7 +12,7 @@ Write-Output "Entering '$RepoPath'"
 
 Push-Location $RepoPath
 try {
-     Write-Output "$($Keys.TestResourceKey)"
+
      mvn clean test "-DTestResourceKey=$($Keys.TestResourceKey)" "-DSuperResourceKey=$($Keys.TestResourceKey)" "-DLicenseKey=$($Keys.DeviceDetection)"
 
 }
