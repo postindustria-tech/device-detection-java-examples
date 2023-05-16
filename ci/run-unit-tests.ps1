@@ -7,6 +7,7 @@ param(
     [string]$RepoName
 )
 
-./java/run-unit-tests.ps1 -RepoName $RepoName -ProjectDir $ProjectDir -Name $Name -ExtraArgs "-DSuperResourceKey=$($Keys.TestResourceKey)"
+./java/run-unit-tests.ps1 -RepoName $RepoName -ProjectDir $ProjectDir -Name $Name -ExtraArgs "-DTestResourceKey=$($Keys.TestResourceKey) -DSuperResourceKey=$($Keys.TestResourceKey) -DLicenseKey=$($Keys.DeviceDetection)"
+
 
 exit $LASTEXITCODE
