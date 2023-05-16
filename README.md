@@ -21,6 +21,8 @@ Among other things, the examples illustrate:
 - use of device detection pipeline for off-line processing tasks
 - configuring device detection trade-offs between speed and conserving memory
 
+## Cloud resource keys
+
 You will require [resource keys](https://51degrees.com/documentation/_info__resource_keys.html)
 to use the Cloud API, as described on our website. Get resource keys from
 our [configurator](https://configure.51degrees.com/), see our [documentation](https://51degrees.com/documentation/_concepts__configurator.html) on
@@ -36,6 +38,26 @@ property called "TestResourceKey".
 Some cloud examples require an enhanced resource key containing a license key. And some
 on-premise examples require you to provide a license key. You can find out about 
 resource keys and license keys at our [pricing page](https://51degrees.com/pricing). 
+
+## Running examples with changes to Pipeline packages
+
+A common use case is to make a change to the Pipeline logic in
+device-detection-java and then use these examples to observe the results of the
+change.
+
+By default, the examples are configured to use the packages from Maven central.
+In order to produce and use local packages instead:
+
+- Clone and make your changes to device-detection-java
+- Set the version of the device detection packages that we're going to create to 0.0.0:
+  `mvn versions:set-property -Dproperty="project.version" "-DnewVersion=0.0.0"`
+- Create and install the packages locally (skipping tests is needed):
+  `mvn clean install [-DskipTests]`
+- Modify the POM for the examples to reference these new local packages. This can
+  be done by editing the POM directly or by using the command line:
+  `mvn versions:set-property -Dproperty="device-detection.version" "-DnewVersion=0.0.0"`
+
+The same principle can be applied to incorporate changes in pipeline-java if needed.
 
 ## Examples
 
