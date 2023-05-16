@@ -1,13 +1,24 @@
 
 param(
     [string]$ProjectDir = ".",
-    [string]$Name,
+    [string]$Name,    
     [hashtable]$Keys,
     [Parameter(Mandatory=$true)]
     [string]$RepoName
 )
 
-./java/run-unit-tests.ps1 -RepoName $RepoName -ProjectDir $ProjectDir -Name $Name -ExtraArgs "-DTestResourceKey=$($Keys.TestResourceKey) -DSuperResourceKey=$($Keys.TestResourceKey) -DLicenseKey=$($Keys.DeviceDetection)"
+$RepoPath = [IO.Path]::Combine($pwd, $RepoName, $ProjectDir)
 
+Write-Output "Entering '$RepoPath'"
 
+Push-Location $RepoPath
+try {
+
+     mvn clean test "-DTestResourceKey=$($Keys.TestResourceKey)" "-DSuperResourceKey=$($Keys.TestResourceKey)" "-DLicenseKey=$($Keys.DeviceDetection)"
+
+}
+finally{
+   Write-Output "Leaving '$RepoPath'"
+   Pop-Location
+}
 exit $LASTEXITCODE
