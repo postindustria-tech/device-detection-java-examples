@@ -6,7 +6,9 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$RepoName
 )
-$ExtraArgs = '"-DTestResourceKey=$($Keys.TestResourceKey)" "-DSuperResourceKey=$($Keys.TestResourceKey)" "-DLicenseKey=$($Keys.DeviceDetection)"'
+$ExtraArgs = @'
+-DTestResourceKey={0} -DSuperResourceKey={1} -DLicenseKey={2}
+'@ -f $Keys.TestResourceKey, $Keys.TestResourceKey, $Keys.DeviceDetection
 
 Write-Output $ExtraArgs
 ./java/run-unit-tests.ps1 -RepoName $RepoName -ProjectDir $ProjectDir -Name $Name -ExtraArgs $ExtraArgs
