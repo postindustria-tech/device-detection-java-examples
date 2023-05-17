@@ -7,7 +7,6 @@ param(
     [string]$RepoName
 )
 
-$RepoPath = [IO.Path]::Combine($pwd, $RepoName, $ProjectDir)
 
 Write-Output "Entering '$RepoPath'"
 
