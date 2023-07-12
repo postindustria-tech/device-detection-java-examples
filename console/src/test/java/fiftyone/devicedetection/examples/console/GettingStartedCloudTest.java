@@ -25,12 +25,19 @@ package fiftyone.devicedetection.examples.console;
 import fiftyone.devicedetection.examples.shared.EvidenceHelper;
 import fiftyone.devicedetection.examples.shared.KeyHelper;
 
+import fiftyone.devicedetection.shared.testhelpers.KeyUtils;
 import org.junit.Test;
+
+import static org.junit.Assume.assumeFalse;
 
 public class GettingStartedCloudTest {
     @Test
     public void gettingStartedCloudTest() throws Exception {
-        GettingStartedCloud.run(KeyHelper.getOrSetTestResourceKey(),
+        String resourceKey = KeyHelper.getOrSetTestResourceKey();
+        assumeFalse("Skipping test, no resource key found",
+            KeyUtils.isInvalidKey(resourceKey));
+
+        GettingStartedCloud.run(resourceKey,
                 EvidenceHelper.setUpEvidence(), System.out);
     }
 }

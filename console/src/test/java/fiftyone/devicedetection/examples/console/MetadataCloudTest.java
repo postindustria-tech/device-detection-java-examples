@@ -23,12 +23,18 @@
 package fiftyone.devicedetection.examples.console;
 
 import fiftyone.devicedetection.examples.shared.KeyHelper;
+import fiftyone.devicedetection.shared.testhelpers.KeyUtils;
 import org.junit.Test;
+
+import static org.junit.Assume.assumeFalse;
 
 public class MetadataCloudTest {
     @Test
     public void gettingMetaDataCloudTest() throws Exception {
-        MetadataCloud.run(KeyHelper.getOrSetTestResourceKey(), System.out);
+        String resourceKey = KeyHelper.getOrSetTestResourceKey();
+        assumeFalse("Skipping test, no resource key found",
+            KeyUtils.isInvalidKey(resourceKey));
+        MetadataCloud.run(resourceKey, System.out);
     }
 
 }
