@@ -33,30 +33,26 @@ public class KeyHelper {
     public static final String TEST_RESOURCE_KEY = "TestResourceKey";
     static Logger logger = LoggerFactory.getLogger(KeyHelper.class);
 
-    static void defaultFailCallback(String value) {
-        throw new IllegalStateException("\"" + value + "\" is not a valid resource key");
-    }
-
     /**
      * Obtain a resource key either from environment variable or from a property.
      */
     public static String getOrSetTestResourceKey() {
-        return getOrSetTestResourceKey(KeyHelper::defaultFailCallback);
+        return getOrSetTestResourceKey(true);
     }
 
-    public static String getOrSetTestResourceKey(Consumer<String> failCallback) {
-        return getOrSetTestResourceKey(null, failCallback);
+    public static String getOrSetTestResourceKey(boolean shouldThrow) {
+        return getOrSetTestResourceKey(null, shouldThrow);
     }
 
-    public static String getOrSetTestResourceKey(String value, Consumer<String> failCallback) {
+    public static String getOrSetTestResourceKey(String value, boolean shouldThrow) {
         return getOrSetResourceKey(value, TEST_RESOURCE_KEY,
             "A free resource key configured with the " +
                 "properties required by this example may be obtained from " +
                 "https://configure.51degrees.com/jqz435Nc ",
-            failCallback);
+            shouldThrow);
     }
     public static String getOrSetTestResourceKey(String value) {
-        return getOrSetTestResourceKey(value, KeyHelper::defaultFailCallback);
+        return getOrSetTestResourceKey(value, true);
     }
     /**
      * Obtain a resource key from the passed argument,
@@ -65,7 +61,7 @@ public class KeyHelper {
      */
     public static String getOrSetResourceKey(String value, String variableName,
                                              String errorMessage,
-                                             Consumer<String> failCallback) {
+                                             boolean shouldThrow) {
         if (Objects.isNull(value)) {
             value = KeyUtils.getNamedKey(variableName);
 
@@ -78,7 +74,9 @@ public class KeyHelper {
                     "\n - as a System Property named \"\u001B[36m{}\u001B[0m\").", variableName,
                     variableName);
             logger.error(errorMessage);
-            failCallback.accept(value);
+            if (shouldThrow) {
+                throw new IllegalStateException("\"" + value + "\" is not a valid resource key");
+            }
         }
 
         // capture the passed parameter for next time called
@@ -86,15 +84,15 @@ public class KeyHelper {
         return value;
     }
     public static String getOrSetSuperResourceKey(String value, String variablename) {
-        return getOrSetSuperResourceKey(value, variablename, KeyHelper::defaultFailCallback);
+        return getOrSetSuperResourceKey(value, variablename, true);
     }
-    public static String getOrSetSuperResourceKey(String value, String variablename, Consumer<String> failCallback) {
+    public static String getOrSetSuperResourceKey(String value, String variablename, boolean shouldThrow) {
         return getOrSetResourceKey(value, variablename, "TAC lookup and Native Model are not " +
                 "available as a free service.\nThis means " +
                 "that you will first need a license key, which can be purchased " +
                 "from our pricing page: http://51degrees.com/pricing. \nOnce this is " +
                 "done, a resource key with the properties required by this example " +
                 "can be created at https://configure.51degrees.com/QKyYH5XT. ",
-            failCallback);
+            shouldThrow);
     }
 }

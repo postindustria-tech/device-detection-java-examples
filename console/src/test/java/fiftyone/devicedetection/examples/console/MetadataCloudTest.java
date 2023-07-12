@@ -31,10 +31,9 @@ import static org.junit.Assume.assumeFalse;
 public class MetadataCloudTest {
     @Test
     public void gettingMetaDataCloudTest() throws Exception {
-        String resourceKey = KeyHelper.getOrSetTestResourceKey((s) -> {
-            assumeFalse("Skipping test, no resource key found",
-                false);
-        });
+        String resourceKey = KeyHelper.getOrSetTestResourceKey(false);
+        assumeFalse("Skipping test, no resource key found",
+            KeyUtils.isInvalidKey(resourceKey));
         MetadataCloud.run(resourceKey, System.out);
     }
 
