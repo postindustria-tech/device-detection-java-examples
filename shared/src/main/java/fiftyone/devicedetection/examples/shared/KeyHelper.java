@@ -41,7 +41,7 @@ public class KeyHelper {
      * Obtain a resource key either from environment variable or from a property.
      */
     public static String getOrSetTestResourceKey() {
-        getOrSetTestResourceKey(KeyHelper::defaultFailCallback);
+        return getOrSetTestResourceKey(KeyHelper::defaultFailCallback);
     }
 
     public static String getOrSetTestResourceKey(Consumer<String> failCallback) {
@@ -86,7 +86,7 @@ public class KeyHelper {
         return value;
     }
     public static String getOrSetSuperResourceKey(String value, String variablename) {
-        getOrSetSuperResourceKey(value, variablename, KeyHelper::defaultFailCallback);
+        return getOrSetSuperResourceKey(value, variablename, KeyHelper::defaultFailCallback);
     }
     public static String getOrSetSuperResourceKey(String value, String variablename, Consumer<String> failCallback) {
         return getOrSetResourceKey(value, variablename, "TAC lookup and Native Model are not " +
