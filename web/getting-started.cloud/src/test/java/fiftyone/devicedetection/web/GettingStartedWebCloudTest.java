@@ -45,14 +45,14 @@ public class GettingStartedWebCloudTest {
 
     @BeforeClass
     public static void startJetty() throws Exception {
-        String resourceKey = KeyUtils.getNamedKey("TestResourceKey");
-        assumeFalse("Skipping test, no resource key found",
-            KeyUtils.isInvalidKey(resourceKey));
         SERVER = EmbedJetty.startWebApp(getFilePath(resourceBase).getAbsolutePath(), 8081);
     }
 
     @Test
     public void testWebCloud() throws Exception {
+        String resourceKey = KeyUtils.getNamedKey("TestResourceKey");
+        assumeFalse("Skipping test, no resource key found",
+            KeyUtils.isInvalidKey(resourceKey));
 
         HttpURLConnection connection =
                 (HttpURLConnection) new URL("http://localhost:8081/").openConnection();
@@ -69,8 +69,6 @@ public class GettingStartedWebCloudTest {
 
     @AfterClass
     public static void stopJetty() throws Exception {
-        if (SERVER != null) {
-            SERVER.stop();
-        }
+        SERVER.stop();
     }
 }
