@@ -41,11 +41,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assume.assumeFalse;
 
 public class GettingStartedWebCloudTest {
-    private static Server SERVER;
+    private static Server SERVER = null;
 
     @BeforeClass
     public static void startJetty() throws Exception {
-        String resourceKey = KeyHelper.getOrSetTestResourceKey();
+        String resourceKey = KeyUtils.getNamedKey("TestResourceKey");
         assumeFalse("Skipping test, no resource key found",
             KeyUtils.isInvalidKey(resourceKey));
         SERVER = EmbedJetty.startWebApp(getFilePath(resourceBase).getAbsolutePath(), 8081);
@@ -69,6 +69,8 @@ public class GettingStartedWebCloudTest {
 
     @AfterClass
     public static void stopJetty() throws Exception {
-        SERVER.stop();
+        if (SERVER != null) {
+            SERVER.stop();
+        }
     }
 }
