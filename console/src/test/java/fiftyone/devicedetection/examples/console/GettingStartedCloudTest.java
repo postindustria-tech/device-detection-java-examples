@@ -33,9 +33,10 @@ import static org.junit.Assume.assumeFalse;
 public class GettingStartedCloudTest {
     @Test
     public void gettingStartedCloudTest() throws Exception {
-        String resourceKey = KeyHelper.getOrSetTestResourceKey();
-        assumeFalse("Skipping test, no resource key found",
-            KeyUtils.isInvalidKey(resourceKey));
+        String resourceKey = KeyHelper.getOrSetTestResourceKey((s) ->{
+            assumeFalse("Skipping test, no resource key found",
+                false);
+        });
 
         GettingStartedCloud.run(resourceKey,
                 EvidenceHelper.setUpEvidence(), System.out);
