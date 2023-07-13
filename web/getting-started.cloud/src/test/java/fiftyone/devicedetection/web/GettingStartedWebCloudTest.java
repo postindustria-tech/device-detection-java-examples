@@ -22,7 +22,9 @@
 
 package fiftyone.devicedetection.web;
 
+import fiftyone.devicedetection.examples.shared.KeyHelper;
 import fiftyone.devicedetection.examples.web.EmbedJetty;
+import fiftyone.devicedetection.shared.testhelpers.KeyUtils;
 import org.eclipse.jetty.server.Server;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -36,9 +38,10 @@ import java.util.Scanner;
 import static fiftyone.devicedetection.examples.web.GettingStartedWebCloud.resourceBase;
 import static fiftyone.pipeline.util.FileFinder.getFilePath;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assume.assumeFalse;
 
 public class GettingStartedWebCloudTest {
-    private static Server SERVER;
+    private static Server SERVER = null;
 
     @BeforeClass
     public static void startJetty() throws Exception {
@@ -47,6 +50,9 @@ public class GettingStartedWebCloudTest {
 
     @Test
     public void testWebCloud() throws Exception {
+        String resourceKey = KeyUtils.getNamedKey("TestResourceKey");
+        assumeFalse("Skipping test, no resource key found",
+            KeyUtils.isInvalidKey(resourceKey));
 
         HttpURLConnection connection =
                 (HttpURLConnection) new URL("http://localhost:8081/").openConnection();
