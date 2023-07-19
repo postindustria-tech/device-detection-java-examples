@@ -40,5 +40,23 @@
         <Element>
             <BuilderName>DeviceDetectionCloudEngine</BuilderName>
         </Element>
+        <Element>
+            <!-- 
+            Needed to obtain additional information from 51Degrees.core.json
+            -->
+            <BuilderName>JsonBuilderElement</BuilderName>
+        </Element>
+        <Element>
+            <!-- Needed to provide customized JS from 51Degrees.core.js -->
+            <BuilderName>JavaScriptBuilderElement</BuilderName>
+            <BuildParameters>
+                <!-- 
+                Set based on the origin being used. Remember in secure origins 
+                won't be able to run some features like GetHighEntropyValues. 
+                -->
+                <Protocol>http</Protocol>
+                <!-- <Protocol>https</Protocol> -->
+            </BuildParameters>
+        </Element>
     </Elements>
 </PipelineOptions>
