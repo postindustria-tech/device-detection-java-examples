@@ -183,15 +183,13 @@ public class PerformanceBenchmark {
 
             // run the benchmarks twice, once to warm up the JVM
             logger.info("Warming up");
-            long warmpupTime = runTests(pipeline);
+            runTests(pipeline);
             System.gc();
             Thread.sleep(300);
 
             logger.info("Running");
             long executionTime = runTests(pipeline);
-            long adjustedExecutionTime = executionTime - warmpupTime;
-            logger.info("Finished - Execution time was {} ms, adjustment from warm-up {} ms",
-                    executionTime, adjustedExecutionTime);
+            logger.info("Finished - Execution time was {} ms", executionTime);
         } finally {
             if (Objects.nonNull(pipeline)) {
                 pipeline.close();
