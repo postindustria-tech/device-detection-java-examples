@@ -126,7 +126,7 @@ public class GettingStartedWebCloud extends HttpServlet {
  *
  * @include{doc} example-getting-started-web.txt
  *
- * This example is available in full on [GitHub](https://github.com/51Degrees/device-detection-java/blob/master/device-detection-java-examples/web/getting-started.cloud/src/main/java/fiftyone/devicedetection/examples/web/GettingStartedWebCloud.java).
+ * This example is available in full on [GitHub](https://github.com/51Degrees/device-detection-java-examples/blob/master/web/getting-started.cloud/src/main/java/fiftyone/devicedetection/examples/web/GettingStartedWebCloud.java).
  *
  * @include{doc} example-require-resourcekey.txt
  *

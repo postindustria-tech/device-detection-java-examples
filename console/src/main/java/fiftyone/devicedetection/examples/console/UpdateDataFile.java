@@ -181,7 +181,7 @@ import static fiftyone.pipeline.util.FileFinder.getFilePath;
  * </ol>
  * <p>
  * To run this example you must obtain a license key purchased from our
- * <a href="http://51degrees.com/pricing/annual">pricing page</a>. Look for our "Bigger" or
+ * <a href="https://51degrees.com/pricing/annual">pricing page</a>. Look for our "Bigger" or
  * "Biggest" options. This license key must be supplied as a command line argument or by setting
  * an environment variable or system property called {@link UpdateDataFile#UPDATE_EXAMPLE_LICENSE_KEY_NAME}
  */
@@ -224,7 +224,7 @@ public class UpdateDataFile {
         if (Objects.isNull(licenseKey) || KeyUtils.isInvalidKey(licenseKey)) {
             logger.error("In order to test this example you will need a 51Degrees Enterprise " +
                     "license which can be obtained on a trial basis or purchased from our\n" +
-                    "pricing page http://51degrees.com/pricing. You must supply the license " +
+                    "pricing page https://51degrees.com/pricing. You must supply the license " +
                     "key as an argument to this program, or as an environment or system variable " +
                     "named '{}'", UPDATE_EXAMPLE_LICENSE_KEY_NAME);
             throw new IllegalArgumentException("No license key available");

@@ -121,7 +121,7 @@ public class GettingStartedWebOnPrem extends HttpServlet {
  *
  * @include{doc} example-getting-started-web.txt
  *
- * This example is available in full on [GitHub](https://github.com/51Degrees/device-detection-java/blob/master/device-detection-java-examples/web/getting-started.onprem/src/main/java/fiftyone/devicedetection/examples/web/GettingStartedWebOnPrem.java).
+ * This example is available in full on [GitHub](https://github.com/51Degrees/device-detection-java-examples/blob/master/web/getting-started.onprem/src/main/java/fiftyone/devicedetection/examples/web/GettingStartedWebOnPrem.java).
  *
  * @include{doc} example-require-datafile.txt
  *

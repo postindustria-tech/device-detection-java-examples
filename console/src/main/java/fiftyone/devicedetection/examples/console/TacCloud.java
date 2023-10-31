@@ -47,7 +47,7 @@ import static fiftyone.pipeline.util.FileFinder.getFilePath;
  * This example demonstrates looking up device details using a TAC code.
  * <p>
  * Unlike other examples, use of this example requires a license key which can be purchased from our
- * <a href="http://51degrees.com/pricing">pricing page</a>. Once this is done, a resource key with the
+ * <a href="https://51degrees.com/pricing">pricing page</a>. Once this is done, a resource key with the
  * properties required by this example can be created
  * <a href="https://configure.51degrees.com/QKyYH5XT">here</a>.
  * <p>
@@ -72,7 +72,7 @@ public class TacCloud {
         // For a demonstration of how to do this in code instead, see the
         // NativeModelLookup example.
         // For more information about builders in general see the documentation at
-        // http://51degrees.com/documentation/_concepts__configuration__builders__index.html
+        // https://51degrees.com/documentation/_concepts__configuration__builders__index.html
 
         // the configuration file is in the resources directory
         File optionsFile = getFilePath("tacCloud.xml");
@@ -138,7 +138,7 @@ public class TacCloud {
  * [pricing page](//51degrees.com/pricing). Once this is done, a resource key with the
  * properties required by this example can be created [here](//configure.51degrees.com/QKyYH5XT).
  *
- * This example is available in full on [GitHub](https://github.com/51Degrees/device-detection-java/blob/master/device-detection-java-examples/console/src/main/java/fiftyone/devicedetection/examples/console/TacCloud.java).
+ * This example is available in full on [GitHub](https://github.com/51Degrees/device-detection-java-examples/blob/master/console/src/main/java/fiftyone/devicedetection/examples/console/TacCloud.java).
  *
  * @include{doc} example-require-resourcekey.txt
  */
