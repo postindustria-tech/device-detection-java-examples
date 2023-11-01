@@ -84,7 +84,7 @@ public class GettingStartedCloud {
         /* In this example, we use the DeviceDetectionPipelineBuilder and configure it in code.
 
         For more information about pipelines in general see the documentation at
-        http://51degrees.com/documentation/_concepts__configuration__builders__index.html
+        https://51degrees.com/documentation/_concepts__configuration__builders__index.html
 
         Note that we wrap the creation of a pipeline in a try/resources to control its lifecycle */
         try (Pipeline pipeline = new DeviceDetectionPipelineBuilder()
@@ -158,7 +158,7 @@ public class GettingStartedCloud {
  *
  * @include{doc} example-getting-started-cloud.txt
  *
- * This example is available in full on [GitHub](https://github.com/51Degrees/device-detection-java/blob/master/device-detection-java-examples/console/src/main/java/fiftyone/devicedetection/examples/console/GettingStartedCloud.java).
+ * This example is available in full on [GitHub](https://github.com/51Degrees/device-detection-java-examples/blob/main/console/src/main/java/fiftyone/devicedetection/examples/console/GettingStartedCloud.java).
  *
  * @include{doc} example-require-resourcekey.txt
  */
