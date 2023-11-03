@@ -26,6 +26,7 @@ import fiftyone.devicedetection.shared.DeviceData;
 import fiftyone.pipeline.core.configuration.PipelineOptions;
 import fiftyone.pipeline.core.configuration.PipelineOptionsFactory;
 import fiftyone.pipeline.core.data.FlowData;
+import fiftyone.pipeline.web.Constants;
 import fiftyone.pipeline.web.services.FlowDataProviderCore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,6 +78,11 @@ public class GettingStartedWebOnPrem extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             doHtmlPreamble(out, "Web Integration On-Premise Example");
+
+            // request main 51Degrees Client Side Script - this is automatically
+            // served by inclusion of the PipelineFilter which intercepts the request
+            // and serves dynamically generated JavaScript
+            out.println("<script src=\"" + Constants.CORE_JS_NAME+ "\"></script>");
 
              // include description of example
             doStaticText(out, resourceBase + "/WEB-INF/html/example-description.html");
