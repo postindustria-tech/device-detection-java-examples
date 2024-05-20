@@ -56,7 +56,7 @@ public class NativeModelCloud {
         // This example creates the pipeline and engines in code. For a demonstration
         // of how to do this using a configuration file instead, see the TacCloud example.
         // For more information about builders in general see the documentation at
-        // http://51degrees.com/documentation/_concepts__configuration__builders__index.html
+        // https://51degrees.com/documentation/_concepts__configuration__builders__index.html
         resourceKey = getOrSetSuperResourceKey(resourceKey, NATIVE_MODEL_EXAMPLE_RESOURCE_KEY_NAME);
 
         try (PrintWriter output = new PrintWriter(os)) {
@@ -130,8 +130,8 @@ public class NativeModelCloud {
  * [iOS devices](https://gist.github.com/soapyigu/c99e1f45553070726f14c1bb0a54053b#file-machinename-swift)
  *
  * Unlike other examples, use of this example requires a license key which can be purchased from [our
- * pricing page](http://51degrees.com/pricing). Once this is done, a resource key with the
+ * pricing page](https://51degrees.com/pricing). Once this is done, a resource key with the
  * properties required by this example can be created at [here](//configure.51degrees.com/QKyYH5XT).
  *
- * This example is available in full on [GitHub](https://github.com/51Degrees/device-detection-java/blob/master/device-detection-java-examples/console/src/main/java/fiftyone/devicedetection/examples/console/NativeModelCloud.java).
+ * This example is available in full on [GitHub](https://github.com/51Degrees/device-detection-java-examples/blob/master/console/src/main/java/fiftyone/devicedetection/examples/console/NativeModelCloud.java).
  */

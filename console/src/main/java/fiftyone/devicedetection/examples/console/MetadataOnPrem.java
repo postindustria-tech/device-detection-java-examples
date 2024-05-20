@@ -78,8 +78,8 @@ public class MetadataOnPrem {
                 // We use the low memory profile as its performance is sufficient for this
                 // example. See the documentation for more detail on this and other
                 // configuration options:
-                // http://51degrees.com/documentation/_device_detection__features__performance_options.html
-                // http://51degrees.com/documentation/_features__automatic_datafile_updates.html
+                // https://51degrees.com/documentation/_device_detection__features__performance_options.html
+                // https://51degrees.com/documentation/_features__automatic_datafile_updates.html
                 .setPerformanceProfile(Constants.PerformanceProfiles.LowMemory)
                 // inhibit auto-update of the data file for this test
                 .setAutoUpdate(false)
@@ -231,7 +231,7 @@ public class MetadataOnPrem {
  * keys that, when added to the evidence collection in flow data, could have some impact on the
  * result returned by device detection.
  *
- * This example is available in full on [GitHub](https://github.com/51Degrees/device-detection-java/blob/master/device-detection-java-examples/console/src/main/java/fiftyone/devicedetection/examples/console/MetadataOnPrem.java).
+ * This example is available in full on [GitHub](https://github.com/51Degrees/device-detection-java-examples/blob/main/console/src/main/java/fiftyone/devicedetection/examples/console/MetadataOnPrem.java).
  *
  * @include{doc} example-require-datafile.txt
  */
